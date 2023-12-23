@@ -19,93 +19,6 @@ const UserProfileStack =  createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
-const App = () => (
-  <NavigationContainer>
-    <Tab.Navigator
-      initialRouteName='SignIn'
-      screenOptions={{
-        tabBarStyle: {
-          backgroundColor: '#ffff',
-          borderTopRightRadius: 25,
-          borderTopLeftRadius: 25,
-          height: 70,
-        },
-      }}
-    >
-
-      <Tab.Screen
-        name="Homepage"
-        component={HomeStackScreen}
-        options={{
-          tabBarIcon: () => <AntDesign name="home" size={30} color="black" />,
-          headerShown: false,
-          tabBarLabel: '',
-          title: "Create New Task",
-          headerTitleAlign: "center",
-        }}
-      />
-
-      <Tab.Screen
-        name="SignIn"
-        component={LoginStackScreen}
-        options={{
-          tabBarIcon: () => <AntDesign name="user" size={35} color="#fff" />,
-          tabBarLabel: '',
-          title: "Sign In",
-          headerTitleAlign: "center",
-          headerShown: false,
-          tabBarVisible: false,
-          tabBarStyle: {
-            display: 'none',
-          },
-        }}
-      />
-     {
-      <Tab.Screen
-        name="SignUp"
-        component={SignupStackScreen}
-        options={{
-          tabBarIcon: () => <AntDesign name="user" size={30} color="black" />,
-          tabBarLabel: '',
-          title: "Sign Up",
-          headerTitleAlign: "center",
-          headerShown: false,
-        }}
-      /> }
-
-      <Tab.Screen
-        name="AddToCard"
-        component={AddToCardScreen}
-        options={{
-          tabBarIcon: () => <AntDesign name="shoppingcart" size={24} color="black" />,
-          tabBarLabel: '',
-          title: "Add to Card",
-          tabBarVisible: false,
-          // tabBarStyle: {
-          //   display: 'none',
-          // },
-        }}
-      />
-      
-      <Tab.Screen
-        name="Profile"
-        component={AddToCardScreen}
-        options={{
-          tabBarIcon: () => <AntDesign name="user" size={30} color="black" />,
-          tabBarLabel: '',
-          title: "User profile",
-          tabBarVisible: false,
-          // tabBarStyle: {
-          //   display: 'none',
-          // },
-        }}
-      />
-    </Tab.Navigator>
-  </NavigationContainer>
-);
-
-
-
 // Home Stack Screen
 const HomeStackScreen = () => (
   <HomeStack.Navigator>
@@ -179,5 +92,96 @@ const UserProfileStackScreen = () => (
 
 
 )
+
+
+const App = () => (
+  <NavigationContainer>
+    <Tab.Navigator
+      initialRouteName='SignIn'
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#ffff',
+          borderTopRightRadius: 25,
+          borderTopLeftRadius: 25,
+          height: 70,
+        },
+      }}
+    >
+
+      <Tab.Screen
+        name="Homepage"
+        component={HomeStackScreen}
+        options={{
+          tabBarIcon: () => <AntDesign name="home" size={30} color="black" />,
+          headerShown: false,
+          tabBarLabel: '',
+          title: "Create New Task",
+          headerTitleAlign: "center",
+        }}
+      />
+
+      <Tab.Screen
+        name="SignIn"
+        component={LoginStackScreen}
+        options={{
+          tabBarIcon: () => <AntDesign name="user" size={35} color="#fff" />,
+          tabBarLabel: '',
+          title: "Sign In",
+          headerTitleAlign: "center",
+          headerShown: false,
+          tabBarVisible: false,
+          tabBarStyle: {
+            display: 'none',
+          },
+        }}
+      />
+
+     
+      <Tab.Screen
+        name="SignUp"
+        component={SignupStackScreen}
+        options={{
+          tabBarIcon: () => <AntDesign name="user" size={30} color="black" />,
+          tabBarLabel: '',
+          title: "Sign Up",
+          headerTitleAlign: "center",
+          headerShown: false,
+        }}
+      /> 
+
+      <Tab.Screen
+        name="AddToCard"
+        component={AddToCardScreen}
+        options={{
+          tabBarIcon: () => <AntDesign name="shoppingcart" size={24} color="black" />,
+          tabBarLabel: '',
+          title: "Add to Card",
+          tabBarVisible: false,
+          // tabBarStyle: {
+          //   display: 'none',
+          // },
+        }}
+      />
+      
+      <Tab.Screen
+        name="Profile"
+        component={UserProfileScreen}
+        options={{
+          tabBarIcon: () => <AntDesign name="user" size={30} color="black" />,
+          tabBarLabel: '',
+          title: "User profile",
+          tabBarVisible: false,
+          // tabBarStyle: {
+          //   display: 'none',
+          // },
+        }}
+      />
+    </Tab.Navigator>
+  </NavigationContainer>
+);
+
+
+
+
 
 export default App;

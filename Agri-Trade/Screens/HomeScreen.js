@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 const Home = () => {
   return (
-    <View style={styles.container}>
+          <View style={styles.container}>
       {/* Search Bar */}
       <View style={styles.searchBarContainer}>
         <View style={[styles.searchBar, styles.searchBarWidth]}>

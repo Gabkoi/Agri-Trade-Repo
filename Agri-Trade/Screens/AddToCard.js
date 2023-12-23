@@ -1,29 +1,30 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView, Image} from "react-native";
 import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 const AddToCard = () =>{
     return(
-        <ScrollView>
-            <View style={styles.ViewOne}>
+        <ScrollView style={styles.ScrollContiner}>
+            <View style={styles.Container}>
             <Image
             source={require('../assets/Orangepic.jpeg')}
             style={[styles.image1]}/>
+
             <View style={styles.textContainer}>
                 <View style={styles.textRow}>
-                <Text style={{fontSize: 20, fontWeight:"bold"}}>Rice Seeds </Text>
-                <Ionicons name="add-outline" size={20} color="red" style={styles.imageIcon} />
-                </View>
-                <View style={styles.textRow}>
-                <Text style={{fontSize:15, color: "green"}}>Avialable in Stack</Text>
+                <Text style={styles.headingText}>Rice Seeds </Text>
+                <Ionicons name="add-outline" size={20}color="red" style={styles.positiveIcon}/>
+            </View>
+
+            <View style={styles.textRow}>
+                <Text style={styles.avialbleText}>Avialable in Stack</Text>
                 <Text style={styles.textkg}>3kg</Text>
                 </View>
-
                 <View style={styles.textRow}>
                 <Text>200 Ld</Text>
-                <Ionicons name="add-outline" size={20} color="red" style={styles.imageIcon} />
-                </View>
-                
+                <AntDesign name="minus" size={24} color="black" style={styles.negitiveIcon} />
+            </View>
 
             </View>
             
@@ -37,36 +38,66 @@ export default AddToCard
 
 const styles = StyleSheet.create({
 
-    ViewOne:{
+    Container:{
         flex:1,
         flexDirection: "row",
-        marginTop: 10
+        alignItems: "center",
+        marginTop: 10,
+        backgroundColor: "#fffcfc"
     },
 
+    ScrollContiner:{
+        padding:15
+    },
+    
     textContainer:{
         flexDirection: "column",
+        alignItems: "center",
         marginLeft: 10,
-        marginTop: 20
+        marginTop:10
+    
     },
 
     textRow:{
         flexDirection: "row",
-        alignItems: "center"
-
+        alignItems: "center",
     },
 
-    try:{
-        marginTop:20
+    headingText:{
+        fontSize: 20,
+        fontWeight: "bold"
     },
 
     textkg:{
         marginLeft: 20,
+        color: "black",
+        fontWeight: "bold",
+        marginTop: 5
+    },
+
+    positiveIcon: {
+        marginLeft: 20,
+        backgroundColor: "green",
+        borderRadius: 20,
+        color: "white"
+    },
+
+    negitiveIcon:{
+        marginLeft: 90,
+        backgroundColor: "green",
+        borderRadius: 20,
+        color: "white",
+        marginTop: 5
+    },
+
+    avialbleText:{
+        color: "green",
+        fontSize: 14
     },
 
     image1:{
-        width:140,
+        width:150,
         height: 100,
-        marginLeft: 16
-    }
+    },
 
 })
