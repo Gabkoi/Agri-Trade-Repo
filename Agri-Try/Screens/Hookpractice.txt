@@ -1,0 +1,43 @@
+import { StyleSheet, Text, View, Button} from 'react-native'
+import React, {useState} from 'react'
+
+export default function Home() {
+  const [name, setName] = useState("shui")
+
+  const clickHandler = () =>{
+    setName("Akoi GAbrie")
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text>my name is {name}</Text>
+      <Text></Text>
+
+      <View style={styles.Button}>
+        <Button title='update State' onPress={clickHandler}/>
+      </View>
+    </View>
+  )
+}
+
+
+
+
+
+
+const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    justifyContent: "center", 
+    alignItems: "center",
+  },
+
+  Button:{
+    marginTop: 20
+
+  }
+  
+});
+
+
+
