@@ -40,4 +40,61 @@ const styles = StyleSheet.create({
 });
 
 
+    // <View>
+    //   <Text>
+    //     I am {props.name}, and I am {isHungry ? 'hungry' : 'full'}!
+    //   </Text>
+    //   <Button
+    //     onPress={() => {
+    //       setIsHungry(false);
+    //     }}
+    //     disabled={isHungry}
+    //     title={isHungry ? 'Pour me some milk, please!' : 'Thank you'}
+    // //   />
+    // </View>
 
+
+
+const Cat = props => {
+  // const[isHungry , setIsHungry] = useState(true);
+  const[text , setText] = useState("")
+
+
+  return (
+    <View style={{padding: 10}}>
+      <TextInput placeholder="Enter your text for tranlate" 
+      onChange={newText => setText(newText)}
+      defaultValue="text"
+      >
+      </TextInput>
+    </View>
+    
+
+  );
+};
+
+export default Cat
+
+
+
+const increament = () =>(
+    setCount(count + 1)
+  );
+
+  const decreament = () =>{
+    setCount(count - 1)
+  } 
+
+
+  return(
+    <View>
+      <Text>This is the number{count}</Text>
+      <Button title="increase"onPress={increament}/>
+      <Button title="decrease" onPress={decreament} />
+
+
+      </View>
+
+  );
+  
+};

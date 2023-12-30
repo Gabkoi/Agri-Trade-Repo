@@ -27,8 +27,7 @@ const AddToCard = () =>{
             </View>
             </View>
             </View> 
-            <Text>Gabriel Akoi</Text>
-        </ScrollView>
+         </ScrollView>
     );
 };
 

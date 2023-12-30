@@ -10,6 +10,7 @@ import LoginScreen from './Screens/Login';
 import SignupScreen from './Screens/SignUp';
 import AddToCardScreen from './Screens/AddToCard';
 import UserProfileScreen from './Screens/UserProfile';
+import DetailScreen from './Screens/DetailScreen';
 
 const HomeStack = createNativeStackNavigator();
 const LoginStack = createNativeStackNavigator();
@@ -28,6 +29,17 @@ const HomeStackScreen = () => (
       options={{
         title: 'Homepage',
         headerShown: false,
+      }}
+    />
+
+    <HomeStack.Screen
+      name='DetailScreen'
+      component={DetailScreen}
+      options={{
+        title: 'Product Details',
+        headerTitleAlign: 'center',
+        headerTransparent: true,
+        // headerShown: false,
       }}
     />
   </HomeStack.Navigator>
@@ -93,13 +105,13 @@ const UserProfileStackScreen = () => (
 const App = () => (
   <NavigationContainer>
     <Tab.Navigator
-      initialRouteName='Homepage'
+      initialRouteName='SignIn'
       screenOptions={{
         tabBarStyle: {
           backgroundColor: '#ffff',
           borderTopRightRadius: 25,
           borderTopLeftRadius: 25,
-          height: 70,
+          height: 65,
         },
       }}
     >
@@ -111,9 +123,11 @@ const App = () => (
           tabBarLabel: '',
           title: 'Homepage',
           headerTitleAlign: 'center',
+          headerShown: false
         }}
       />
-      <Tab.Screen
+
+      {/* <Tab.Screen
         name='SignIn'
         component={LoginStackScreen}
         options={{
@@ -123,8 +137,9 @@ const App = () => (
           headerTitleAlign: 'center',
           headerShown: false,
         }}
-      />
-      <Tab.Screen
+      /> */}
+
+      {/* <Tab.Screen
         name='SignUp'
         component={SignupStackScreen}
         options={{
@@ -134,12 +149,13 @@ const App = () => (
           headerTitleAlign: 'center',
           headerShown: false,
         }}
-      />
+      /> */}
+
       <Tab.Screen
         name='AddToCard'
         component={AddToCardStackScreen}
         options={{
-          tabBarIcon: () => <AntDesign name='shoppingcart' size={24} color='black' />,
+          tabBarIcon: () => <AntDesign name='shoppingcart' size={30} color='black' />,
           tabBarLabel: '',
           title: 'Add to Card',
         }}

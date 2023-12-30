@@ -1,12 +1,17 @@
 import React from "react";
-import { View, StyleSheet, Text, TextInput, Image, ScrollView } from "react-native";
+import { View, StyleSheet, Text, TextInput, Image, ScrollView, TouchableOpacity } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
-          <View style={styles.container}>
+    <View style={styles.container}>
       {/* Search Bar */}
+      <View style={styles.greetingHead}>
+        <Text style={styles.greetingheadText}>Hi Gabriel</Text>
+        <Text>Enjoy your Services</Text>
+      </View>
+
       <View style={styles.searchBarContainer}>
         <View style={[styles.searchBar, styles.searchBarWidth]}>
           <Feather name="search" size={20} color="black" />
@@ -16,17 +21,18 @@ const Home = () => {
               placeholder="Find your favorite food"
             />
           </View>
-        </View>
-        <Feather name="shopping-cart" size={24} color="black" style={styles.shopMe} />
+        </View   >
+        <Feather name="shopping-cart" size={24} color="black" style={styles.shopMe} onPress={()=> navigation.navigate("DetailScreen")}/>
       </View>
+    
 
       <ScrollView>
       {/* Product List one */}
-      <View style={styles.PriductlistContainer}>
+      <View>
         <View style={styles.imageContainer}>
           <Image
             source={require('../assets/Orangepic.jpeg')}
-            style={[styles.image, styles.image1]}
+            style={[styles.image]}
           />
         </View>
         <View style={styles.featuretextContainer}>
@@ -35,58 +41,78 @@ const Home = () => {
         </View>
       </View>
 
-      {/* Product List two */}
+      {/* Product List one */}
       <View style={styles.productcontainer}>
-        <View style={styles.card}>
-          <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
-          <Text style={styles.cardText}>Rice Seeds</Text>
-          <View style={styles.priceButoonContainer}>
-            <Text style={styles.cardText}>$2000Ld</Text>
-            <Ionicons name="add-outline" size={20} color="white" style={styles.imageIcon} />
-          </View>
+      <View style={styles.bodyContainer}>
+        <View style={styles.imageCon}>
+        <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
+      
+       <View style={styles.cardContainer}>
+        <Text style={styles.cardText}>Rice Seeds</Text>
+        <Text style={styles.cardPrice}>$14/kg</Text>
+        <View style={styles.AddContainer}>
+        <Text style={styles.priceCard} onPress={()=> navigation.navigate("DetailScreen")}>Add to Cart</Text>
         </View>
-
-        <View style={styles.card}>
-          <Image style={styles.cardImage} source={require('../assets/Cassava.jpg')} />
-          <Text style={styles.cardText}>Cassava</Text>
-          <View style={styles.priceButoonContainer}>
-            <Text style={styles.cardText}>$2000Ld</Text>
-            <Ionicons name="add-outline" size={20} color="white" style={styles.imageIcon} />
-          </View>
         </View>
+       </View>
       </View>
 
+      <View style={styles.bodyContainer}>
+        <View style={styles.imageCon}>
+          <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
+          <View style={styles.cardContainer}>
+          <Text style={styles.cardText}>Rice Seeds</Text>
+          <Text style={styles.cardPrice}>$14/kg</Text>
+          <View style={styles.AddContainer}>
+          <Text style={styles.priceCard} onPress={()=> navigation.navigate("DetailScreen")}>Add to Cart</Text>
+        </View>
+        </View>
+       </View>
+      </View>
+      </View>
+
+
+      {/* product list two */}
       <View style={styles.productcontainer}>
-       <View style={styles.card}>
-          <Image style={styles.cardImage} source={require('../assets/Cassava.jpg')} />
-          <Text style={styles.cardText}>Cassava</Text>
-          <View style={styles.priceButoonContainer}>
-            <Text style={styles.cardText}>$2000Ld</Text>
-            <Ionicons name="add-outline" size={20} color="white" style={styles.imageIcon} />
-          </View>
-        </View>
-    
-      <View style={styles.card}>
-          <Image style={styles.cardImage} source={require('../assets/Cassava.jpg')} />
-          <Text style={styles.cardText}>Cassava</Text>
-          <View style={styles.priceButoonContainer}>
-            <Text style={styles.cardText}>$2000Ld</Text>
-            <Ionicons name="add-outline" size={20} color="white" style={styles.imageIcon} />
-          </View>
+      <View style={styles.bodyContainer}>
+        <View style={styles.imageCon}>
+        <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
+      
+       <View style={styles.cardContainer}>
+        <Text style={styles.cardText}>Rice Seeds</Text>
+        <Text style={styles.cardPrice}>$14/kg</Text>
+        <View style={styles.AddContainer}>
+        <Text style={styles.priceCard} onPress={()=> navigation.navigate("DetailScreen")}>Add to Cart</Text>
         </View>
         </View>
+       </View>
+      </View>
+
+      <View style={styles.bodyContainer}>
+        <View style={styles.imageCon}>
+          <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
+          <View style={styles.cardContainer}>
+        <Text style={styles.cardText}>Rice Seeds</Text>
+        <Text style={styles.cardPrice}>$14/kg</Text>
+        <View style={styles.AddContainer}>
+          <Text style={styles.priceCard} onPress={()=> navigation.navigate("DetailScreen")}>Add to Cart</Text>
+        </View>
+        </View>
+       </View>
+      </View>
+      </View>      
       </ScrollView>
     </View>
   );
 };
 
 
+
+
+
+
+
 // export default Home;
-
-
-
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -99,7 +125,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 10,
     padding:10,
-    marginTop: 55
+    marginTop: 10,
+    width:"102%"
   },
 
   searchBar: {
@@ -109,18 +136,17 @@ const styles = StyleSheet.create({
 
   searchBarWidth: {
     borderWidth: 2,
-    height: 50,
+    height: 43,
     borderRadius: 100,
     alignItems: "center",
     padding: 10,
     marginRight: 20,
-    width: "100%",
+    // width: "110%",
   },
 
   searchInputContainer: {
     flex: 1,
     marginLeft: 10,
-  
   },
 
   searchInput: {
@@ -154,7 +180,6 @@ const styles = StyleSheet.create({
     marginTop: 50
   },
 
-
   // product styles code 
   imageContainer:{
     flex:1,
@@ -168,11 +193,11 @@ const styles = StyleSheet.create({
 
   image:{
     height: 190,
-    width: 340,
+    width: '100%',
     resizeMode: 'cover',
-    marginTop: 50,
+    marginTop: 40,
     // margin: 16, 
-    padding: 10
+    padding: 10,
 
   },
 
@@ -182,47 +207,82 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     display: 'flex',
-    marginTop: 20
+    marginTop: 20,
+    borderColor: 'green',
+  
+    // backgroundColor: 'green',
   },
 
-  card: {
+  bodyContainer: {
     flex: 1,
-    backgroundColor: '#fff',
     padding: 3,
     marginHorizontal: 8,
-    borderRadius: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 3,
   },
+
   cardImage: {
     width: "100%",
-    height: 170,
-    borderRadius: 5,
+    height: 130,
+    borderTopLeftRadius: 15, 
+    borderTopRightRadius: 15,
     marginBottom: 1,
   },
+
   cardText: {
+    fontSize: 20,
+    marginTop: 1
+    //  fontWeight: 'bold',
+  },
+
+  cardPrice:{
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight:"bold"
+  },
+ 
+  cardContainer:{
+    justifyContent:"center",
+    alignItems: "center",
+    marginBottom:10,
   },
 
-  // tryme button 
-  priceButoonContainer:{
-    flex:1,
-    flexDirection:"row",
-    marginTop: 10
-    // justifyContent: ""
-  },
-
-  imageIcon:{
-    marginLeft:50,
-    fontSize: 30,
+  AddContainer:{
     backgroundColor: "#00B251",
-    marginBottom: 2
-  }
+    marginTop: 5,
+    borderRadius: 10,
+    width: 100,
+  },
+
+
+  imageCon:{
+    borderWidth: 1, 
+    width:"100%",
+    borderRadius: 10, 
+    borderColor: "green",
+    borderTopLeftRadius: 18, 
+    borderTopRightRadius: 18,
+  },
+  
+  priceCard:{
+    fontSize: 16,
+    padding: 5,
+    // fontWeight: "bold"
+  },
+
+  greetingHead:{
+    marginTop: 20,
+    paddingHorizontal: 18
+  },
+
+  greetingheadText:{
+    fontSize:20,
+    color:"black",
+    fontWeight:"bold"
+  },
+
+ 
+
   
 });
+
+
 
 export default Home;
