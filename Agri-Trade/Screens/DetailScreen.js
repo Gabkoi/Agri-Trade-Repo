@@ -52,12 +52,10 @@ export default Details;
 
 const styles = StyleSheet.create({
     container: {
-      marginTop: 100,
-      height: 130,
-      width: 350,
-      padding: 10,
-      borderRadius: 10, 
-      backgroundColor: '#fff',
+    flex:1,
+    padding: 15,
+    paddingHorizontal: 20,
+    backgroundColor: '#fff',
     },
 
     productImage: {
@@ -117,7 +115,7 @@ const styles = StyleSheet.create({
     },
 
     buttonContainer:{
-        marginTop:30,
+        marginTop:50,
         backgroundColor: "#00B251",
         borderRadius:18,
         paddingHorizontal:5,

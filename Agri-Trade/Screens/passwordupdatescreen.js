@@ -16,19 +16,19 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 
 
-const Login = ({navigation}) => {
+const Login = () => {
   return (
     <ScrollView>
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <SafeAreaView style={styles.formContainer}>
       <Text style={styles.appName}>AgriTrade Form</Text>
-      <Text style={styles.loginStyles}>Login</Text>
+      <Text style={styles.loginStyles}>Update Your Password</Text>
       
       <View style={styles.inputContainer}>
       <Feather name="phone" size={20} color="black" />
       <TextInput
         style={[styles.inputField, styles.inputStyles]}
-        placeholder='Phone Number'
+        placeholder='Email'
         multiline={false}
       />
     </View>
@@ -41,28 +41,9 @@ const Login = ({navigation}) => {
         />  
         </View>
 
-      <View style={styles.option}>
-         <TouchableOpacity
-          onPress={() => navigation.navigate('SignUp')} 
-         >
-          <Text style={styles.optionText}>Create Account</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-        onPress={() => navigation.navigate('UpdatePasword')}
-         >
-         <Text style={styles.optionText}>Forget Password?</Text>
-         </TouchableOpacity>
-
-      </View>
-
-
       <View style={styles.buttonContainer}>
-      <TouchableOpacity  onPress={()=> navigation.navigate("MainTabs")}
-      >
-        <Text style={styles.buttonText}>Log In</Text>
-      </TouchableOpacity>
-      </View> 
+        <Text style={styles.buttonText}>Update Password</Text>
+    </View> 
 
 
 
@@ -106,12 +87,10 @@ const styles = StyleSheet.create({
   },
 
   loginStyles:{
-    fontSize: 30,
-    marginBottom:10
+    fontSize: 20,
+    marginBottom:10,
   },
 
-//   formAutomate:{
-// },
 
 formAutomateText:{
   fontSize: 16,

@@ -13,21 +13,18 @@ const AddToCard = () =>{
 
             <View style={styles.textContainer}>
                 <View style={styles.textRow}>
-                <Text style={styles.headingText}>Rice Seeds </Text>
-                <Ionicons name="add-outline" size={20}color="red" style={styles.positiveIcon}/>
-            </View>
-
-            <View style={styles.textRow}>
-                <Text style={styles.avialbleText}>Avialable in Stack</Text>
-                <Text style={styles.textkg}>3kg</Text>
+                    <Text style={styles.headingText}>Rice Seeds</Text>
                 </View>
-                <View style={styles.textRow}>
-                <Text>200 Ld</Text>
-                <AntDesign name="minus" size={24} color="black" style={styles.negitiveIcon} />
+                <View style={styles.priceContainer}>
+                    <Text style={styles.priceText}>Price</Text>
+                    <Text style={styles.amountText}>$20.00</Text>
+                </View>
             </View>
             </View>
-            </View> 
-         </ScrollView>
+        <View style={styles.buttonContainer}>
+             <Text style={styles.buttonText}>Checkout </Text>
+        </View>     
+    </ScrollView>
     );
 };
 
@@ -51,48 +48,31 @@ const styles = StyleSheet.create({
     },
     
     textContainer:{
-        flexDirection: "column",
-        alignItems: "center",
         marginLeft: 10,
         marginTop:10
-    
     },
 
-    textRow:{
-        flexDirection: "row",
-        alignItems: "center",
+    priceContainer:{
+        flexDirection:"row",
+        marginTop:-5
     },
+
+    priceText:{
+        fontSize:16,
+        color:"black"
+    },
+
+    amountText:{
+        paddingHorizontal: 10,
+        fontSize:15,
+        color: "green"
+    },
+
 
     headingText:{
         fontSize: 20,
-        fontWeight: "bold"
-    },
-
-    textkg:{
-        marginLeft: 20,
-        color: "black",
         fontWeight: "bold",
-        marginTop: 5
-    },
-
-    positiveIcon: {
-        marginLeft: 20,
-        backgroundColor: "green",
-        borderRadius: 20,
-        color: "white"
-    },
-
-    negitiveIcon:{
-        marginLeft: 90,
-        backgroundColor: "green",
-        borderRadius: 20,
-        color: "white",
-        marginTop: 5
-    },
-
-    avialbleText:{
-        color: "green",
-        fontSize: 14
+        marginTop: -40
     },
 
     image1:{
@@ -100,4 +80,18 @@ const styles = StyleSheet.create({
         height: 100,
     },
 
+    // button styles
+    buttonContainer:{
+        marginTop:30,
+        backgroundColor: "#00B251",
+        borderRadius:20,
+        paddingHorizontal:5,
+        paddingVertical: 15
+      },
+      
+      buttonText:{
+        fontSize:20,
+        textAlign:"center",
+        color: "#ffff"
+      },
 })

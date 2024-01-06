@@ -1,16 +1,18 @@
 import React from "react";
-import { View, StyleSheet, Text, TextInput, Image, ScrollView, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TextInput, Image, ScrollView, TouchableOpacity, handlePress } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
 const Home = ({navigation}) => {
   return (
     <View style={styles.container}>
-      {/* Search Bar */}
-      <View style={styles.greetingHead}>
-        <Text style={styles.greetingheadText}>Hi Gabriel</Text>
-        <Text>Enjoy your Services</Text>
-      </View>
+        <View style={styles.greetingHead}>
+          <Text style={styles.greetingheadText}>Hi Gabriel</Text>
+          <View style={styles.headIcon}>
+            <Feather name="shopping-cart" size={24} color="black" style={styles.shopMe} onPress={()=> navigation.navigate("DetailScreen")}/>
+          </View>
+        </View>
+      <Text style={styles.enjoyText}>Enjoy your Services</Text>
 
       <View style={styles.searchBarContainer}>
         <View style={[styles.searchBar, styles.searchBarWidth]}>
@@ -21,20 +23,17 @@ const Home = ({navigation}) => {
               placeholder="Find your favorite food"
             />
           </View>
-        </View   >
-        <Feather name="shopping-cart" size={24} color="black" style={styles.shopMe} onPress={()=> navigation.navigate("DetailScreen")}/>
-      </View>
+        </View >
+        </View>
     
 
       <ScrollView>
       {/* Product List one */}
       <View>
         <View style={styles.imageContainer}>
-          <Image
-            source={require('../assets/Orangepic.jpeg')}
-            style={[styles.image]}
-          />
+        <Image source={require('../assets/Orangepic.jpeg')}  style={styles.productImage} />
         </View>
+  
         <View style={styles.featuretextContainer}>
           <Text style={styles.productText}>Featured Products</Text>
           <Text style={styles.productSeeall}>See All</Text>
@@ -43,64 +42,78 @@ const Home = ({navigation}) => {
 
       {/* Product List one */}
       <View style={styles.productcontainer}>
-      <View style={styles.bodyContainer}>
+       <View style={styles.bodyContainer}>
         <View style={styles.imageCon}>
+    <TouchableOpacity onPress={()=> navigation.navigate("DetailScreen")}>
         <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
-      
+    </TouchableOpacity>
        <View style={styles.cardContainer}>
         <Text style={styles.cardText}>Rice Seeds</Text>
-        <Text style={styles.cardPrice}>$14/kg</Text>
+        <View style={styles.priceContainer}>
+          <Text style={styles.priceStyles}>Price</Text>
+          <Text style={styles.amountStyles}>$14.00</Text>
+        </View>
         <View style={styles.AddContainer}>
-        <Text style={styles.priceCard} onPress={()=> navigation.navigate("DetailScreen")}>Add to Cart</Text>
         </View>
         </View>
        </View>
-      </View>
+       </View>
 
-      <View style={styles.bodyContainer}>
+       <View style={styles.bodyContainer}>
         <View style={styles.imageCon}>
-          <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
-          <View style={styles.cardContainer}>
-          <Text style={styles.cardText}>Rice Seeds</Text>
-          <Text style={styles.cardPrice}>$14/kg</Text>
-          <View style={styles.AddContainer}>
-          <Text style={styles.priceCard} onPress={()=> navigation.navigate("DetailScreen")}>Add to Cart</Text>
+        <TouchableOpacity onPress={()=> navigation.navigate("DetailScreen")}>
+             <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
+       </TouchableOpacity>
+        <View style={styles.cardContainer}>
+        <Text style={styles.cardText}>Rice Seeds</Text>
+        <View style={styles.priceContainer}>
+          <Text style={styles.priceStyles}>Price</Text>
+          <Text style={styles.amountStyles}>$14.00</Text>
+        </View>
+        <View style={styles.AddContainer}>
         </View>
         </View>
        </View>
-      </View>
+       </View>
       </View>
 
 
-      {/* product list two */}
+      {/* Product List Two */}
       <View style={styles.productcontainer}>
-      <View style={styles.bodyContainer}>
+       <View style={styles.bodyContainer}>
         <View style={styles.imageCon}>
-        <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
-      
+        <TouchableOpacity onPress={()=> navigation.navigate("DetailScreen")}>
+            <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
+       </TouchableOpacity>
        <View style={styles.cardContainer}>
         <Text style={styles.cardText}>Rice Seeds</Text>
-        <Text style={styles.cardPrice}>$14/kg</Text>
+        <View style={styles.priceContainer}>
+          <Text style={styles.priceStyles}>Price</Text>
+          <Text style={styles.amountStyles}>$14.00</Text>
+        </View>
         <View style={styles.AddContainer}>
-        <Text style={styles.priceCard} onPress={()=> navigation.navigate("DetailScreen")}>Add to Cart</Text>
         </View>
         </View>
        </View>
-      </View>
+       </View>
 
-      <View style={styles.bodyContainer}>
+       <View style={styles.bodyContainer}>
         <View style={styles.imageCon}>
-          <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
+          <TouchableOpacity onPress={()=> navigation.navigate("DetailScreen")}>
+               <Image style={styles.cardImage} source={require('../assets/Rice.jpg')} />
+          </TouchableOpacity>
           <View style={styles.cardContainer}>
-        <Text style={styles.cardText}>Rice Seeds</Text>
-        <Text style={styles.cardPrice}>$14/kg</Text>
-        <View style={styles.AddContainer}>
-          <Text style={styles.priceCard} onPress={()=> navigation.navigate("DetailScreen")}>Add to Cart</Text>
-        </View>
-        </View>
+            <Text style={styles.cardText}>Rice Seeds</Text>
+            <View style={styles.priceContainer}>
+          <Text style={styles.priceStyles}>Price</Text>
+          <Text style={styles.amountStyles}>$14.00</Text>
+           </View>
+           <View style={styles.AddContainer}>
+             </View>
+             </View>
        </View>
-      </View>
-      </View>      
+       </View>
+      </View>  
       </ScrollView>
     </View>
   );
@@ -108,15 +121,11 @@ const Home = ({navigation}) => {
 
 
 
-
-
-
-
 // export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    marginTop: 30,
   },
 
   searchBarContainer: {
@@ -128,6 +137,29 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width:"102%"
   },
+
+  // greating styles 
+
+  greetingHead:{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: 'space-between',
+    marginTop: 30,
+    padding: 10,
+    paddingHorizontal: 18
+  },
+  greetingheadText:{
+    fontSize:20,
+    color:"black",
+    fontWeight:"bold"
+  },
+
+  enjoyText: {
+    fontSize: 18,
+    marginTop: -10,
+    paddingHorizontal: 18
+  },
+
 
   searchBar: {
     flex: 100,
@@ -183,22 +215,18 @@ const styles = StyleSheet.create({
   // product styles code 
   imageContainer:{
     flex:1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 30,
     height: 130,
-    width: 350,
-    padding: 10,    
+    width: 350,   
+    padding: 15,
+    paddingHorizontal: 10,
   },
 
-  image:{
-    height: 190,
+  productImage: {
+    height: 100,
     width: '100%',
-    resizeMode: 'cover',
-    marginTop: 40,
-    // margin: 16, 
-    padding: 10,
-
+    borderRadius: 10, 
+    height: 180,
+   
   },
 
   // This styles is for the  body card
@@ -209,9 +237,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     marginTop: 20,
     borderColor: 'green',
-  
-    // backgroundColor: 'green',
   },
+  
 
   bodyContainer: {
     flex: 1,
@@ -222,8 +249,8 @@ const styles = StyleSheet.create({
   cardImage: {
     width: "100%",
     height: 130,
-    borderTopLeftRadius: 15, 
-    borderTopRightRadius: 15,
+    borderTopLeftRadius: 10, 
+    borderTopRightRadius: 10,
     marginBottom: 1,
   },
 
@@ -239,9 +266,21 @@ const styles = StyleSheet.create({
   },
  
   cardContainer:{
-    justifyContent:"center",
-    alignItems: "center",
-    marginBottom:10,
+    padding: 4
+  },
+
+  priceContainer:{
+    flexDirection: "row",
+  },
+
+  amountStyles:{
+    paddingHorizontal: 10,
+    fontSize: 15,
+    color: "green"
+  },
+
+  priceStyles:{
+    fontSize: 15
   },
 
   AddContainer:{
@@ -266,21 +305,6 @@ const styles = StyleSheet.create({
     padding: 5,
     // fontWeight: "bold"
   },
-
-  greetingHead:{
-    marginTop: 20,
-    paddingHorizontal: 18
-  },
-
-  greetingheadText:{
-    fontSize:20,
-    color:"black",
-    fontWeight:"bold"
-  },
-
- 
-
-  
 });
 
 
