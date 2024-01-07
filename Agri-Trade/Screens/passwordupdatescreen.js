@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   StyleSheet,
   Text,
@@ -6,177 +6,173 @@ import {
   TextInput,
   SafeAreaView,
   TouchableOpacity,
-  TouchableWithoutFeedback ,
+  TouchableWithoutFeedback,
   Keyboard,
   ScrollView,
-} from 'react-native';
-import { Feather } from '@expo/vector-icons';
-import { Octicons } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons'; 
-
-
+} from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { Octicons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const Login = () => {
   return (
     <ScrollView>
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-    <SafeAreaView style={styles.formContainer}>
-      <Text style={styles.appName}>AgriTrade Form</Text>
-      <Text style={styles.loginStyles}>Update Your Password</Text>
-      
-      <View style={styles.inputContainer}>
-      <Feather name="phone" size={20} color="black" />
-      <TextInput
-        style={[styles.inputField, styles.inputStyles]}
-        placeholder='Email'
-        multiline={false}
-      />
-    </View>
-        <View style={styles.inputContainer}>
-         <MaterialIcons name="lock-open" size={24} color="black" style={styles.icon} />
-         
-        <TextInput  style={[styles.inputField, styles.inputStyles]}
-          placeholder='Password'
-        secureTextEntry={true} 
-        />  
-        </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <SafeAreaView style={styles.formContainer}>
+          <Text style={styles.appName}>AgriTrade Form</Text>
+          <Text style={styles.loginStyles}>Update Your Password</Text>
 
-      <View style={styles.buttonContainer}>
-        <Text style={styles.buttonText}>Update Password</Text>
-    </View> 
+          <View style={styles.inputContainer}>
+            <Feather name="phone" size={20} color="black" />
+            <TextInput
+              style={[styles.inputField, styles.inputStyles]}
+              placeholder="Email"
+              multiline={false}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <MaterialIcons
+              name="lock-open"
+              size={24}
+              color="black"
+              style={styles.icon}
+            />
 
+            <TextInput
+              style={[styles.inputField, styles.inputStyles]}
+              placeholder="Password"
+              secureTextEntry={true}
+            />
+          </View>
 
-
-      
-    </SafeAreaView>
-    </TouchableWithoutFeedback >
+          <View style={styles.buttonContainer}>
+            <Text style={styles.buttonText}>Update Password</Text>
+          </View>
+        </SafeAreaView>
+      </TouchableWithoutFeedback>
     </ScrollView>
   );
-}
+};
 
-export default Login
+export default Login;
 
 const styles = StyleSheet.create({
-  formContainer:{
-  flex: 1, 
-  justifyContent: "center",
-  paddingHorizontal: 10,
-  paddingVertical:10,
-  marginTop: 200
+  formContainer: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    marginTop: 200,
   },
 
   inputContainer: {
-    flexDirection: 'row', 
-    alignItems: 'center', 
-    borderWidth: 1, 
-    borderRadius:10 ,
-    paddingHorizontal: 10, 
-    marginBottom:15
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    marginBottom: 15,
   },
-  
-  inputField:{
+
+  inputField: {
     height: 50,
     // width: "10%"
-   },
+  },
 
-  inputStyles:{
-    marginBottom:1,
-    paddingHorizontal: 10, 
+  inputStyles: {
+    marginBottom: 1,
+    paddingHorizontal: 10,
     fontSize: 15,
-    textAlign: 'auto' 
+    textAlign: "auto",
   },
 
-  loginStyles:{
+  loginStyles: {
     fontSize: 20,
-    marginBottom:10,
+    marginBottom: 10,
   },
 
+  formAutomateText: {
+    fontSize: 16,
+    textAlign: "right",
+  },
 
-formAutomateText:{
-  fontSize: 16,
-  textAlign: "right"
-},
+  forgetPasswordText: {
+    color: "#00B251",
+  },
 
-forgetPasswordText:{
-  color:"#00B251"
-},
+  buttonContainer: {
+    marginTop: 30,
+    backgroundColor: "#00B251",
+    borderRadius: 20,
+    paddingHorizontal: 5,
+    paddingVertical: 15,
+  },
 
-buttonContainer:{
-  marginTop:30,
-  backgroundColor: "#00B251",
-  borderRadius:20,
-  paddingHorizontal:5,
-  paddingVertical: 15
-},
+  buttonText: {
+    fontSize: 20,
+    textAlign: "center",
+  },
 
-buttonText:{
-  fontSize:20,
-  textAlign:"center"
-},
+  alternativeLine: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 10,
+    marginTop: 25,
+  },
 
-alternativeLine:{
-  flexDirection:"row",
-  alignItems:"center",
-  marginVertical: 10,
-  marginTop:25
-},
+  line: {
+    flex: 1,
+    height: 1,
+    backgroundColor: "#a7adbc",
+    justifyContent: "space-between",
+    marginHorizontal: 10,
+  },
 
-line: {
-  flex:1,
-  height:1,
-  backgroundColor:"#a7adbc",
-  justifyContent: "space-between",
-  marginHorizontal:10,        
-},
+  option: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 
-option: {
-  flexDirection: 'row',
-  justifyContent: "space-between"
-},
+  socialMediaConatiner: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 16,
+  },
 
+  SocialLinkText: {
+    borderRadius: 10,
+    borderWidth: 1,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    width: "45%",
+    textAlign: "center",
+    fontSize: 18,
+  },
 
-socialMediaConatiner:{
-  flexDirection: "row",
-  justifyContent:"space-between",
-  marginTop: 16
-},
+  formFooter: {
+    margin: 20,
+    flexDirection: "row",
+    justifyContent: "center",
+  },
 
-SocialLinkText:{
-  borderRadius: 10,
-  borderWidth: 1,
-  paddingHorizontal:20,
-  paddingVertical: 15,
-  width: "45%",
-  textAlign:"center",
-  fontSize: 18
-},
+  footerText: {
+    fontSize: 16,
+  },
 
-formFooter:{
-  margin: 20,
-  flexDirection: "row",
-  justifyContent: "center"
-},
+  signupText: {
+    color: "#00B251",
+  },
 
-footerText:{
-  fontSize:16
-},
+  // this is just a play it will be remove later
+  appName: {
+    fontSize: 30,
+    marginBottom: 50,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
 
-signupText:{
-  color: "#00B251"
-},
-
-// this is just a play it will be remove later
-appName:{
-  fontSize:30,
-  marginBottom:50,
-  fontWeight: "bold",
-  textAlign:"center"
-},
-
-imageIcon:{
-  width: 100,
-  flexDirection: 'row',
-} 
-
-})
-
+  imageIcon: {
+    width: 100,
+    flexDirection: "row",
+  },
+});
